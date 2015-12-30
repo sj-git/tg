@@ -1,0 +1,10 @@
+{
+	"sessionSecret": "developmentSessionSecret",
+	"database": {
+		"url": "mongodb://localhost:27017/cd_test",
+		"options": {
+			"username": "",
+			"password": ""
+		}
+	}
+}

@@ -1,0 +1,16 @@
+h1
+	a(ui-sref="loggedIn.inbox", title="back to inbox")
+		svg.icon.backbutton()
+			use(xlink:href="#BackArrow_16x16")
+	span(contenteditable="true", ng-model="vm.testbench._id", title="click to edit", ng-blur="vm.updateTestbench()")
+
+	div(style={"position":"absolute", "right":"40px", "top":"2px"})
+		a(ui-sref="users()", ng-hide="uservm.user.admin !== true", style={"padding-right":"14px"})
+			svg.icon.icon24.noselect(title="administration")
+				use(xlink:href="#gear")
+		a(ui-sref="userDetails({userId : uservm.user.id})", style={"padding-right":"14px"})
+			svg.icon.icon24.noselect(title="your profile")
+				use(xlink:href="#user")
+		a(ng-click="uservm.user.logout()", style={})
+			svg.icon.icon24.noselect(title="log out")
+				use(xlink:href="#logout")

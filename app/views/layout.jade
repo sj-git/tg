@@ -1,0 +1,37 @@
+doctype html
+html(ng-app="codascentApp")
+  head
+    title= title
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans' type='text/css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+    div(style={"height":"0", "width":"0", "visibility":"hidden", "position":"absolute"})
+      include ../../public/images/ico.svg
+
+    script(src="/javascripts/angular.min.js")
+    script(src="/javascripts/angular-ui-router.min.js")
+    script(src="/javascripts/angular-resource.min.js")
+    script(src="/javascripts//ui-bootstrap-tpls.min.js")
+    script(src="/javascripts/handsontable.full.js")
+
+    script(src="/javascripts/d3.min.js")
+    script(src="/javascripts/sylvester.js")
+
+    script(src="/javascripts/app/app.module.js")
+    script(src="/javascripts/app/directive.contenteditable.js")
+    script(src="/javascripts/app/directive.droplet.js")
+    script(src="/javascripts/app/app.config.js")
+    script(src="/javascripts/app/testbench.controllers.js")
+    script(src="/javascripts/app/testbench.services.js")
+    script(src="/javascripts/app/user.services.js")
+    script(src="/javascripts/app/user.controllers.js")
+    script(src="/javascripts/app/testrun.services.js")
+    script(src="/javascripts/app/auth.services.js")
+    script(src="/javascripts/app/auth.controllers.js")
+    script(src="/javascripts/angular-jwt.js")
+    script(src="/javascripts/app/error-handler.services.js")
+
+  body
+    div#error
+    div#status
+    div(ui-view)

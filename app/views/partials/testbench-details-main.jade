@@ -1,0 +1,37 @@
+div#fileDropOverlay(data-droplet, style={})
+	img(style={"margin":"150px auto", "display":"block", "pointer-events":"none"}, src="/images/DragnDropThrobber.png")
+
+div.pod
+	h2 Testbench Details
+	div.slider
+		div(style={"float":"left", "width":"100px", "margin":"5px"}) Created
+		div(style={"float":"left", "margin":"5px"}) {{vm.testbench.created | date:'medium'}} by {{vm.testbench.createdBy.fullName}}
+		div(style={"clear":"both"})
+
+		div(style={"float":"left", "width":"100px", "margin":"5px"}) Updated
+		div(style={"float":"left", "margin":"5px"}) {{vm.testbench.updated | date:'medium'}}
+		div(style={"clear":"both"})
+
+		div(style={"float":"left", "width":"100px", "margin":"5px"}) Purpose
+		div(contenteditable="true", multiline, ng-model="vm.testbench.purpose", ng-blur="vm.updateTestbench()", title="click to edit", style={"float":"left", "margin":"5px"})
+		div(style={"clear":"both"})
+
+		div(style={"float":"left", "width":"100px", "margin":"5px"}) Comments
+		div(contenteditable="true", multiline, ng-model="vm.testbench.comments", ng-blur="vm.updateTestbench()", title="click to edit", style={"float":"left", "margin":"5px"})
+		div(style={"clear":"both"})
+
+div.pod
+	h2 Testruns ({{vm.testruns.length}})
+	div.table
+		div.thead
+			div.td.tdhrule File Name
+		div.tbody
+			div.tr(ng-repeat="testrun in vm.testruns track by testrun._id")
+				div.td.tdhrule
+					span(style={"float":"right"})
+						svg.icon.hovervis.noselect(title="delete file", ng-click="vm.confirmDeleteTestrun(testrun)")
+							use(xlink:href="#Trash_16x16")
+					a(ng-href="/api/v1/testbenchs/{{vm.testbench._id}}/testruns/{{testrun._id}}?token={{uservm.user.jwt}}", title="download") {{testrun.filename}}
+	div(ng-if="vm.testruns.length === 0", style={"margin":"5px"})
+		| No testruns uploaded yet! Drag files into the browser to upload.
+

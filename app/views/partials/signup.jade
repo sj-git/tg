@@ -1,0 +1,43 @@
+link(href='/stylesheets/stylebootstrap.min.css', rel='stylesheet', media='screen')
+
+div.body
+	div.panel-body(style={"margin-left":"auto", "margin-right":"auto", "display":"block", "width":"500px"})
+
+		.container
+			h1(style={"margin-bottom":"0px","padding-left":"100px"}) TestGrafi
+			p(style={"padding-left":"150px"}) powered by
+				img(src='/images/Codascent_2C_RGB_HR.png', style={"height":"30px", "padding-left":"5px"})
+
+			form.form-horizontal(style={"margin-top":"50px"})
+				.form-group
+					label.control-label.col-sm-1 Username:
+					.col-sm-3
+						input.form-control(type='text', ng-model='vm.user.username', required)
+				.form-group
+					label.control-label.col-sm-1 Email:
+					.col-sm-3
+						input.form-control(type='email', ng-model='vm.user.email',required)
+				.form-group
+					label.control-label.col-sm-1 First Name:
+					.col-sm-3
+						input.form-control(type='text', ng-model='vm.user.firstName', required)
+				.form-group
+					label.control-label.col-sm-1 Last Name:
+					.col-sm-3
+						input.form-control(type='text', ng-model='vm.user.lastName', required)
+				.form-group
+					label.control-label.col-sm-1 Password:
+					.col-sm-3
+						input.form-control(type='password', ng-model='vm.user.password', required)
+				.form-group
+					label.control-label.col-sm-1 Password, again:
+					.col-sm-3
+						input.form-control(type='password', ng-model='vm.user.passwordConfirmation', required)
+				.form-group
+					.col-sm-offset-1.col-sm-5
+						br
+						button.btn.btn-primary(type='submit', ng-click="vm.signup(vm.user)") Register
+						| &nbsp;&nbsp;&nbsp;
+						a(ui-sref="signin()") Back to Sign in
+
+

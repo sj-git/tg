@@ -1,0 +1,14 @@
+a(ui-sref="loggedIn.testbench.details()", ui-sref-active="active-sidebar-state")
+	svg.icon.icon24.noselect(style={"vertical-align":"middle", "padding-right":"8px"})
+		use(xlink:href="#clipboard")
+	span summary
+
+div.sidebar-link(ng-click="vm.cloneTestbench()", style={"cursor":"pointer"})
+	svg.icon.icon24.noselect(style={"vertical-align":"middle", "padding-right":"8px"})
+		use(xlink:href="#copy")
+	span clone
+
+div.sidebar-link(ng-click="vm.confirmDeleteTestbench()", style={"cursor":"pointer"})
+	svg.icon.icon24.noselect(style={"vertical-align":"middle", "padding-right":"8px"})
+		use(xlink:href="#Trash_16x16")
+	span delete

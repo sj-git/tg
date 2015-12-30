@@ -1,0 +1,40 @@
+{
+	"app": {
+		"title": "CD",
+		"description": "",
+		"companyName": "codascent.com",
+		"systemEmail": "support@codascent.com"
+	},
+	"siteName": "cd",
+	"port": 3000,
+	"jsonWebToken": {
+		"issuer": "codascent.com",
+		"expirationInMins": 300,
+		"subject": "jst",
+		"audience": "codascentapiuser",
+		"maxLimit": 10000,
+		"secret": "821CodascentMV94040"
+	},
+	"database": {
+		"url": "mongodb://localhost:27017/cd"
+	},
+	"loginAttempts": {
+		"ip": 50,
+		"ipAndUser": 50,
+		"lockoutTime": "20m"
+	},
+	"log": {
+		"level": "debug",
+		"format": "combined",
+		"options": {
+			"stream": "access.log"
+		}
+	},
+	"mailer": {
+		"service": "gmail",
+		"auth": {
+			"user": "",
+			"pass": ""
+		}
+	}
+}

@@ -1,0 +1,66 @@
+div.banner
+	h1
+		a(ui-sref="users", title="back to users")
+			svg.icon.backbutton()
+				use(xlink:href="#BackArrow_16x16")
+		span Edit User Profile
+
+div.body()
+	div.main()
+		div.pod
+			h2 User Details
+			div.slider
+				div(style={"float":"left", "width":"100px", "margin":"5px"}) Created
+				div(style={"float":"left", "margin":"5px"}) {{vm.user.created | date:'medium'}}
+				div(style={"clear":"both"})
+
+				div(style={"float":"left", "width":"100px", "margin":"5px"}) Updated
+				div(style={"float":"left", "margin":"5px"}) {{vm.user.updated | date:'medium'}}
+				div(style={"clear":"both"})
+
+				div(style={"float":"left", "width":"100px", "margin":"5px"}) First Name
+				div(contenteditable="true", multiline, ng-model="vm.user.firstName", ng-blur="vm.updateUser()", title="click to edit", style={"float":"left", "margin":"5px"})
+				div(style={"clear":"both"})
+
+				div(style={"float":"left", "width":"100px", "margin":"5px"}) Last Name
+				div(contenteditable="true", multiline, ng-model="vm.user.lastName", ng-blur="vm.updateUser()", title="click to edit", style={"float":"left", "margin":"5px"})
+				div(style={"clear":"both"})
+
+				div(style={"float":"left", "width":"100px", "margin":"5px"}) Contact Email
+				div(contenteditable="true", multiline, ng-model="vm.user.email", ng-blur="vm.updateUser()", title="click to edit", style={"float":"left", "margin":"5px"})
+				div(style={"clear":"both"})
+
+				div(style={"float":"left", "width":"100px", "margin":"5px"}) Username
+				div(style={"float":"left", "margin":"5px"}) {{vm.user.username}}
+				div(style={"clear":"both"})
+
+				div(style={"float":"left", "width":"100px", "margin":"5px"}) Last Login
+				div(style={"float":"left", "margin":"5px"}) {{vm.user.loginStat.lastLogin | date:'medium'}} from {{vm.user.loginStat.lastLoginIp}}
+				div(style={"clear":"both"})
+
+				div(style={"float":"left", "width":"100px", "margin":"5px"}) Verified
+				div(style={"float":"left", "margin":"5px"})
+					select(ng-disabled="!vm.adminUser", ng-model='vm.user.accountStatus.verified',ng-change="vm.updateUser()",style={"width":"100%"})
+						option(value='true') Yes
+						option(value='false') No
+				div(style={"clear":"both"})
+
+				div(style={"float":"left", "width":"100px", "margin":"5px"}) Active
+				div(style={"float":"left", "margin":"5px"})
+					select(ng-disabled="!vm.adminUser", ng-model='vm.user.accountStatus.active',ng-change="vm.updateUser()",style={"width":"100%"})
+						option(value='true') Yes
+						option(value='false') No
+				div(style={"clear":"both"})
+
+				div(style={"float":"left", "width":"100px", "margin":"5px"}) isAdmin
+				div(style={"float":"left", "margin":"5px"})
+					select(ng-disabled="!vm.adminUser", ng-model='vm.user.roles',ng-change="vm.updateUser()",style={"width":"100%"})
+						option(value='admin') Yes
+						option(value='user') No
+				div(style={"clear":"both"})
+
+				div(style={"float":"left", "width":"100px", "margin":"5px"}) Deleted
+				div(style={"float":"left", "margin":"5px"}) {{vm.user.accountStatus.deleted}}
+				//div(style={"clear":"both"}
+
+	div.nav()

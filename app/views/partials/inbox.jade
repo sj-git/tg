@@ -1,0 +1,33 @@
+div.banner()
+	h1 Testbenchs
+		div(style={"position":"absolute", "right":"40px", "top":"2px"})
+			a(ui-sref="users()", ng-hide="uservm.user.admin !== true", style={"padding-right":"14px"})
+				svg.icon.icon24.noselect(title="administration")
+					use(xlink:href="#gear")
+			a(ui-sref="userDetails({userId : uservm.user.id})", style={"padding-right":"14px"})
+				svg.icon.icon24.noselect(title="your profile")
+					use(xlink:href="#user")
+			a(ng-click="uservm.user.logout()", style={})
+				svg.icon.icon24.noselect(title="log out")
+					use(xlink:href="#logout")
+
+div.body
+	div.main(style={"padding":"0"})
+		div.table(style={"margin":"0", "padding-top":"6px"})
+			div.thead(style={})
+				div.td.tdhrule Name
+				div.td.tdhrule Created
+				div.td.tdhrule Owner
+			div.tbody
+				div.tr(ng-repeat="testbench in vm.testbenchs")
+					div.td.tdhrule
+						a(ui-sref="loggedIn.testbench.details({testbenchId: '{{testbench._id}}' })") {{testbench._id}}
+					div.td.tdhrule
+						a(ui-sref="loggedIn.testbench.details({testbenchId: '{{testbench._id}}' })") {{testbench.created | date:'medium'}}
+					div.td.tdhrule
+						a(ui-sref="loggedIn.testbench.details({testbenchId: '{{testbench._id}}' })") {{testbench.createdBy.fullName}}
+
+	div.nav()
+		button.button.lightblue(ng-click="vm.newTestbench()", style={"width":"100px", "margin-left":"auto", "margin-right":"auto", "display":"block"}) new
+		div(style={"clear":"both"})
+

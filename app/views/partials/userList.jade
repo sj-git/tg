@@ -1,0 +1,25 @@
+div.banner()
+	h1
+		a(ui-sref="loggedIn.inbox", title="back to inbox")
+				svg.icon.backbutton()
+					use(xlink:href="#BackArrow_16x16")
+		span Users
+
+div.body
+	div.main(style={"padding":"0"})
+		div.table(style={"margin":"0", "padding-top":"6px"})
+			div.thead(style={})
+				div.td.tdhrule Name
+				div.td.tdhrule e-mail
+				div.td.tdhrule username
+			div.tbody
+				div.tr(ng-repeat="user in vm.users")
+					div.td.tdhrule
+						a(ui-sref="userDetails({userId: '{{user._id}}' })") {{user.fullName}}
+					div.td.tdhrule
+						a(ui-sref="userDetails({userId: '{{user._id}}' })") {{user.email}}
+					div.td.tdhrule
+						a(ui-sref="userDetails({userId: '{{user._id}}' })") {{user.username}}
+
+	div.nav()
+		button.button.lightblue(ui-sref="loggedIn.inbox", style={"width":"100px", "margin-left":"3px"}) Inbox

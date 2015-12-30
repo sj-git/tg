@@ -1,0 +1,721 @@
+body {
+	margin: 0;
+	font: 14px "Open Sans", Helvetica, Arial, sans-serif;
+	overflow: hidden;
+}
+
+#error {
+	width: 500px;
+	z-index: 3000;
+	margin: 0px auto;
+	background-color: rgb(246, 190, 0);
+	position: absolute;
+	top: 26px;
+	left: 0px;
+	right: 0px;
+	border-radius: 3px;
+	border: 2px solid #FFA600;
+	box-shadow: 0 4px 10px gray;
+	opacity: 0.8;
+	padding: 10px;
+	font-weight: 700;
+	text-align: center;
+	display: none;
+}
+
+#status {
+	background-color: #307fe2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0%;
+	height: 2px;
+	z-index: 3000;
+}
+
+@media (max-width: 1200px) {
+	.max-width-1200 {
+		display: none !important;
+	}
+}
+
+div.banner {
+	position: absolute;
+	box-shadow: 0px 3px 4px #D3D3D3;
+	right: 0;
+	top: 0;
+	left: 0;
+	padding-left: 20px;
+	z-index: 2000;
+	background: white;
+	width: 100%;
+	height: 60px;
+}
+
+div.banner h1 {
+	line-height: 60px;
+	margin: 0;
+}
+
+div.body {
+	display: flex;
+	flex: 1;
+	position: absolute;
+	top: 60px;
+	height: calc(100% - 60px);
+	width: 100%;
+}
+
+div.aside {
+	padding: 5px;
+	border: 1px solid #AD0000;
+	flex: 1 6 25%;
+	order: 3;
+}
+
+div.nav {
+	padding: 22px 20px 5px 0px;
+	flex: 0 0 12em;
+	order: 1;
+	height: 100%;
+	background-color: #efefef
+}
+
+div.nav .active-sidebar-state {
+	border-left: 2px solid #AD0000;
+}
+
+div.nav .active-sidebar-state svg.icon {
+	fill: #AD0000;
+}
+
+div.nav > a,
+div.nav > div.sidebar-link {
+	padding: 7px 0 7px 20px;
+	box-sizing: border-box;
+	outline: 0;
+	width: 100%;
+	float: left;
+}
+
+div.nav > a.active-sidebar-state,
+div.nav > div.active-sidebar-state {
+	padding: 7px 0 7px 18px;
+	box-sizing: border-box;
+}
+
+div.nav > div.divider {
+	width: 100%;
+	height: 2px;
+	float: left;
+	background: #CFCFCF;
+	margin: 10px 0;
+}
+
+div.nav > div.control-group {
+	margin: 5px 5px 5px 20px;
+}
+
+div.main {
+	padding: 10px 10px;
+	flex: 1;
+	order: 2;
+	overflow-y: auto;
+}
+
+h1, h2 {
+	font-weight: 400;
+}
+
+a {
+	color: #000000;
+	text-decoration: none;
+}
+
+.backbutton {
+	margin-bottom: 2px;
+	margin-right: 6px;
+	fill: #333333;
+}
+
+.noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+[contenteditable]:empty:not(:focus)::after {
+	content: "click to edit";
+	color: gray;
+}
+
+.hovervis {
+	visibility: hidden;
+}
+
+div.tr:hover .hovervis {
+	visibility: visible;
+}
+
+.slider {
+	overflow-y: hidden;
+	max-height: 2000px; /* final max height */
+
+	transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.slider.closed {
+	max-height: 0;
+}
+
+div.pod {
+	border: 1px solid #D3D3D3;
+	box-shadow: 0px 2px 4px #D3D3D3;
+	padding: 15px;
+	margin: 10px 0px;
+	overflow-x: hidden;
+}
+
+div.pod > h2 {
+	margin: 0px;
+	cursor: pointer;
+}
+
+/* table divs >> */
+div.table {
+	display: table;
+	width: 100%;
+	margin: 5px;
+	font-size: 12px;
+}
+
+div.table div.thead {
+	display: table-header-group;
+}
+
+div.table div.tbody {
+	display: table-row-group;
+}
+
+div.table div.tr {
+	display: table-row;
+}
+
+div.table div.td {
+	display: table-cell;
+	padding: 6px 12px;
+}
+
+div.table div.tdhrule {
+	border-bottom: 1px solid #dadada;
+}
+/* << table divs */
+
+/* modal >> */
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background-color: #000;
+	opacity: 0.5;
+	z-index: 2040 !important;
+}
+
+.modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	outline: 0;
+	z-index: 2050 !important;
+}
+
+.modal-dialog {
+	margin: 90px auto;
+	width: 600px;
+}
+
+.modal-content {
+	padding: 0 15px 15px 15px;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+	background-color: #fff;
+	border-radius: 6px;
+	background-clip: padding-box;
+	border: 1px solid rgba(0,0,0,0.2);
+}
+
+/* << modal */
+
+button.button {
+	border-style: none;
+	padding: 9px;
+	border-radius: 3px;
+	cursor: pointer;
+	box-shadow: 0 4px 10px gray;
+}
+
+button.button.button-sm {
+	padding: 6px;
+}
+
+svg.icon {
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	fill: #333;
+}
+
+svg.icon.icon9 {
+	width: 9px;
+	height: 9px;
+}
+
+svg.icon.icon24 {
+	width: 24px;
+	height: 24px;
+}
+
+button > .icon {
+	width: 16px;
+	padding: 0px 4px;
+	margin-bottom: -4px; /* because the icons all have a high-ish baseline... FIXME? */
+}
+
+/* Codascent color pallet >> */
+.lightblue {
+	background: #307fe2;
+	color: white;
+}
+
+.lightblue svg.icon {
+	fill: white;
+}
+
+.darkblue {
+	background: #002855;
+	color: white;
+}
+
+.darkblue svg.icon {
+	fill: white;
+}
+
+.secondary-orange {
+	background: #D45D00;
+}
+
+.secondary-yellow {
+	background: #F6BE00;
+}
+
+.secondary-green {
+	background: #009A44;
+	color: white;
+	fill: white;
+}
+
+.secondary-green svg.icon {
+	fill: white;
+}
+
+.secondary-blue {
+	background: #92C1E9;
+}
+
+.secondary-gray {
+	/* Note the alpha */
+	background: rgba(91, 103, 112, 0.85);
+	color: white;
+}
+
+.secondary-gray svg.icon {
+	fill: white;
+}
+/* << Codascent color pallet */
+
+/* Directive: fileSelectorRow >> */
+.button-group {
+	display: flex;
+}
+
+.button-group > button:first-child {
+	margin-left: 0px;
+	border-bottom-left-radius: 4px;
+	border-top-left-radius: 4px;
+}
+
+.button-group > button:last-child {
+	margin-right: 0px;
+	border-bottom-right-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+.button-group > button {
+	border-radius: 0px;
+	background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(230, 230, 230));
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgb(179, 179, 179);
+	box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);
+	background-repeat: repeat-x;
+	margin-left: -1px;
+	padding: 2px;
+	cursor: pointer;
+	min-width: 24px;
+}
+
+.button-group > button:hover {
+	text-decoration: none;
+	background-position: 0px -15px;
+	transition: background-position 0.1s linear 0s;
+}
+
+.button-group > button:active :not(:disabled) {
+	outline: 0px none;
+	background-image: none;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.button-group > button:disabled {
+	background-image: none;
+}
+
+.button-group > select {
+	padding: 4px;
+	margin-left: -1px;
+	border-width: 1px;
+	border-style: solid;
+	border-image: none;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgb(179, 179, 179);
+	background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(230, 230, 230)) repeat scroll 0% 0% transparent;
+}
+/* << Directive: fileSelectorRow */
+
+.channel {
+	position:absolute;
+	outline: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background-color: transparent;
+	color: transparent;
+	border: 1px solid #ccc;
+	cursor: pointer;
+}
+
+.channel:hover {
+	border: 1px solid #777;
+}
+
+.channel option {
+	color: black;
+}
+
+.channel.y-channel {
+	top: 14px;
+	left: -3px;
+	width:20px;
+	height: 294px;
+}
+
+.channel.x-channel {
+	top: 340px;
+	left: 49px;
+	width: 294px;
+	height: 20px;
+}
+
+/* Directive: GatingInterface >> */
+gating-interface div.pane {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 4px;
+	margin-top: 8px;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+gating-interface div.pane > * {
+	display: block;
+	margin: 5px 0px;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+gating-interface div.pane.disabled {
+	pointer-events: none;
+	opacity: 0.6;
+}
+
+.gate {
+	fill: #fff;
+	fill-opacity: .1;
+	stroke: red;
+	stroke-width: 1px;
+	shape-rendering: crispedges;
+}
+
+.handle {
+	fill-opacity: 0.3;
+	cursor: pointer;
+}
+
+.handle.selected {
+	fill: #ff7f0e;
+	stroke: #ff7f0e;
+}
+
+.handle.drawing {
+	cursor: crosshair;
+}
+
+.handle:hover {
+	fill: steelblue;
+}
+
+.handle:active {
+	stroke: steelblue;
+	fill-opacity: 0.8;
+}
+
+svg.drawing {
+	cursor: crosshair;
+}
+
+svg.drawing.move {
+	cursor: crosshair;
+}
+
+svg.drawing.handle:not(.drawing):not(.selected) {
+	opacity: 0;
+}
+
+svg .move {
+	cursor: move;
+}
+
+text.gate-label {
+	font-size: 16px;
+	font-family: 'Arial', sans-serif;
+	cursor: move;
+	font-weight: bold;
+}
+
+rect.gate-label {
+	fill-opacity: 0.65;
+	fill: white;
+}
+/* << Directive: GatingInterface */
+
+/* Even though these are the same, it appears that commas can't be used. */
+@keyframes fadein {
+	from {
+	background-color: rgba(255,255,255,0.0);
+	opacity: 0.0;
+	}
+	to {
+	background-color: rgba(255,255,255,0.8);
+	opacity: 1.0;
+	}
+}
+
+@-webkit-keyframes fadein {
+	from {
+	background-color: rgba(255,255,255,0.0);
+	opacity: 0.0;
+	}
+	to {
+	background-color: rgba(255,255,255,0.8);
+	opacity: 1.0;
+	}
+}
+
+@keyframes bouncesize {
+	0%, 20%, 40%, 100% {
+	width: 450px;
+	height: 450px;
+	}
+	10%, 30% {
+	width: 455px;
+	height: 455px;
+	}
+}
+
+@-webkit-keyframes bouncesize {
+	0%, 20%, 40%, 100% {
+	width: 450px;
+	height: 450px;
+	}
+	10%, 30% {
+	width: 455px;
+	height: 455px;
+	}
+}
+
+#fileDropOverlay {
+	animation: fadein 0.5s ease 0s 1;
+	-webkit-animation: fadein 0.5s ease 0s 1;
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 1000;
+	background-color: rgba(255,255,255,0.8);
+	left: 0;
+	top: 0;
+}
+
+#fileDropOverlay img {
+	animation: bouncesize 1.5s ease 1s 2;
+	-webkit-animation: bouncesize 1.5s ease 1s 2;
+}
+
+/* dimensionBox */
+div.dimensions-buttons {
+	margin: 5px 10px;
+	clear: right;
+}
+
+div.dimensions-buttons button {
+	color: #ffffff;
+	background: #4585c5;
+	text-decoration: none;
+	padding: 4px 8px 6px 8px;
+	border: 0px none;
+	border-radius: 3px;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+	margin-right: 1px;
+	cursor: pointer;
+}
+
+div.dimensions-buttons button.enabled {
+	box-shadow: inset 0 2px 10px 0 rgba(0,0,0,0.26);
+}
+
+div.dimensions-buttons button:focus {
+	outline: 0;
+}
+
+div.dimensions-boxes {
+	height: 272px;
+}
+
+div.dimension-box {
+	border: 1px solid gray;
+	height: 260px;
+	width: 180px;
+	float: left;
+	margin: 5px 10px;
+	border-radius: 6px;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+}
+
+div.dimension-box .dimension-header {
+	cursor: move;
+	background: #4585c5;
+	margin: 0px;
+	padding: 2px 7px 4px 7px;
+	color: #f7f7f7;
+	text-shadow: rgba(0,0,0,0.25) 0 0 1px;
+	border-radius: 4px 4px 0px 0px;
+}
+
+div.dimension-box div.dimension-controls {
+	margin: 0px;
+	padding: 2px 7px 4px 7px;
+	color: #888888;
+	background-color: #f3f3f3;
+}
+
+div.dimension-box div.dimension-body {
+	height: 185px;
+	overflow-y: scroll;
+}
+
+div.dimension-box div.dimension-footer {
+	cursor: move;
+	background: #4585c5;
+	margin: 0px;
+	padding: 2px 7px 4px 7px;
+	color: #f7f7f7;
+	text-shadow: rgba(0,0,0,0.25) 0 0 1px;
+	border-radius: 0px 0px 4px 4px;
+	text-align: center;
+}
+
+div.dimension-body label {
+	display: block;
+	float: left;
+	clear: both;
+}
+
+div.dimension-body input, div.dimension-body span {
+	vertical-align: middle;
+}
+
+/* /dimensionBox */
+
+/* plot directive */
+plot {
+	padding: 2px;
+}
+
+div.pivottable {
+	border: 1px solid;
+	padding: 2px;
+}
+
+/* Typeahead dropdown */
+
+.dropdown-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1000;
+	display: none;
+	float: left;
+	min-width: 160px;
+	padding: 5px 0;
+	margin: 2px 0 0;
+	list-style: none;
+	font-size: 14px;
+	text-align: left;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+}
+.dropdown-menu > li > a {
+	display: block;
+	padding: 3px 20px;
+	clear: both;
+	font-weight: normal;
+	line-height: 1.42857143;
+	color: #333333;
+	white-space: nowrap;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+	text-decoration: none;
+	color: #262626;
+	background-color: #f5f5f5;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+	color: #ffffff;
+	text-decoration: none;
+	outline: 0;
+	background-color: #337ab7;
+}

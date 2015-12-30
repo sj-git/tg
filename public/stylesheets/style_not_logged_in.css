@@ -1,0 +1,13 @@
+body {
+	margin-top: 8em;
+	margin-bottom: 12em;
+	margin-left: 24em;
+	background-color: #fafcfc;
+	width: 600px;
+	padding: 25px;
+	border: 5px solid #e3f1ff;
+}
+
+a {
+	margin-left: 25em;
+}
